@@ -1,0 +1,25 @@
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    band TEXT);
+
+INSERT INTO singers (fullname, age, band) VALUES ("Amy Lee", 42, "Evanescence");
+INSERT INTO singers (fullname, age, band) VALUES ("Davey Havok", 48, "AFI");
+INSERT INTO singers (fullname, age, band) VALUES ("Maria Brink", 46, "In This Moment");
+INSERT INTO singers (fullname, age, band) VALUES ("Jonathan Davis", 53, "Korn");
+
+CREATE table wealth (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    singers_id INTEGER,
+    net_worth TEXT);
+    
+INSERT INTO wealth (singers_id, net_worth) VALUES (1, "8 million");
+INSERT INTO wealth (singers_id, net_worth) VALUES (2, "20 million");
+INSERT INTO wealth (singers_id, net_worth) VALUES (3, "2 million");
+INSERT INTO wealth (singers_id, net_worth) VALUES (4, "50 million");
+
+SELECT singers.fullname, wealth.net_worth
+FROM singers
+JOIN wealth
+ON singers.id = wealth.singers_id;
